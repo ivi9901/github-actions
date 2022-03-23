@@ -15,7 +15,8 @@ public class ItemsControllerTest {
 
 		Item item = new Item();
 		String itemDescription = "Tomate";
-		boolean itemCheked = false;
+		// esto era false
+		boolean itemCheked = true;
 		item.setDescription(itemDescription);
 		item.setChecked(itemCheked);
 
