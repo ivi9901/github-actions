@@ -1,17 +1,24 @@
 name: example
 
 on: 
-  pull_request:
+  workflow_dispatch:
 
 jobs:
 
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ windows-latest, ubuntu-latest ]
+        java: [ '8', '11', '17']
+        
+    name: Java ${{ matrix.Java }} sample in ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
-      - name: Set up JDK 17
+      - name: Set up JDK ${{ matrix.Java }}
         uses: actions/setup-java@v2
         with:
           distribution: 'adopt'
-          java-version: '17'
+          java-version: ${{ matrix.Java }}
       - run: mvn test
