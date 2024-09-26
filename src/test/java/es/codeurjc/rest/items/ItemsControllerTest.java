@@ -14,7 +14,7 @@ public class ItemsControllerTest {
 		ItemsRepository itemsRepository = new ItemsRepository();
 
 		Item item = new Item();
-		String itemDescription = "Tomate";
+		String itemDescription = "Tomate pero con un fallo";
 		// esto era false
 		boolean itemCheked = true;
 		item.setDescription(itemDescription);
